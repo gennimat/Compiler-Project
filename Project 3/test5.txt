@@ -1,0 +1,11 @@
+function test5 returns boolean;
+
+
+y: boolean is true;
+
+begin 
+
+not y;
+	
+end;	
+	
