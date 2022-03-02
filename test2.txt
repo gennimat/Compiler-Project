@@ -1,8 +1,0 @@
---Error at line 5: assigning to a boolean variable an int value
---Error at line 7: arithmetic operation on boolean variable
-
-function test2 returns boolean;
-    a: boolean is 3;
-begin
-    a + 5;    
-end;
