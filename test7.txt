@@ -1,9 +1,0 @@
---error at line 5, declared boolean with int value
---error at line 8, and operation between boolean and int
-
-function test7 returns boolean;
-	a: boolean is 4;
-
-begin
-	a and 4;
-end; 
