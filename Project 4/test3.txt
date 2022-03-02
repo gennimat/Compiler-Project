@@ -1,0 +1,14 @@
+--Error when if and then types don't match
+
+function test3 a: boolean returns real;
+
+    b: integer is 3;
+    c: real is 4.0;
+
+begin
+    if a then
+        b;
+    else
+        c;
+    endif;
+end;

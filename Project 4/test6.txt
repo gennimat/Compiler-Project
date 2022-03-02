@@ -1,0 +1,7 @@
+-- Error Undeclared identifier
+
+function test6 a: integer returns integer;
+
+begin
+    a + e;
+end;

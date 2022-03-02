@@ -1,0 +1,7 @@
+--Error due to narrowing of the return type of the function 
+
+function test4 returns integer;
+    a: real is 1.4;
+begin
+    a * 1;
+end;
