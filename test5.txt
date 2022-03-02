@@ -1,5 +1,0 @@
-function test5 returns boolean;
-    a: integer is 8;
-begin
-    a + 8;   
-end;
