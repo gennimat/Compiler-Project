@@ -1,7 +1,0 @@
-
-function test10 returns integer;
-    a: integer is 8;
-    a: integer is 9;
-begin
-    a + 8;   
-end;
