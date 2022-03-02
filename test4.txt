@@ -1,6 +1,7 @@
-(* Program with no errors *)
+--Error due to narrowing of the return type of the function 
 
-
+function test4 returns integer;
+    a: real is 1.4;
 begin
-7 + 2 > 6 and 8 = 5 * (7 - 4);
+    a * 1;
 end;

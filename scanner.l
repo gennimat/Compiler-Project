@@ -10,6 +10,7 @@
 using namespace std;
 
 #include "listing.h"
+#include "types.h"
 #include "tokens.h"
 
 %}
@@ -24,8 +25,8 @@ id		[A-Za-z](_?[A-Za-z0-9])*
 digit		[0-9]
 int		{digit}+
 punc		[\(\),:;]
-real		{digit}+(.){digit}*([eE][+-]?{digit}+)?
-bool		(true|false)
+real		{digit}+\.{digit}*([eE][+-]?{digit}+)?
+
 
 %%
 
@@ -34,21 +35,24 @@ bool		(true|false)
 {othercomment}	{ ECHO; nextLine();}
 {line}		{ ECHO; nextLine();}
 
-"<"		{ ECHO; return(RELOP); }
-"+"		{ ECHO; return(ADDOP); }
-"*"		{ ECHO; return(MULOP); }
-"=>"		{ ECHO; return(ARROW); }
+"<"		{ ECHO;  return(RELOP); }
+"+"		{ ECHO;  return(ADDOP); }
+"*"		{ ECHO;  return(MULOP); }
+"=>"		{ ECHO;  return(ARROW); }	
 
 "=" 		{ ECHO; return(RELOP); }
 "/="		{ ECHO; return(RELOP); }
-">"		{ ECHO; return(RELOP); }
-">="		{ ECHO; return(RELOP); }
-"<="		{ ECHO; return(RELOP); } 
+">"		{ ECHO;  return(RELOP); }
+">="		{ ECHO;  return(RELOP); }
+"<="		{ ECHO;  return(RELOP); } 
 
-"/"		{ ECHO; return(MULOP); }
+"/"		{ ECHO;  return(MULOP); }
 "-"		{ ECHO; return(ADDOP); }
 
-"**"		{ ECHO; return(EXPOP); }
+"**"		{ ECHO;  return(EXPOP); }
+
+true		{ECHO;   return (BOOL_LITERAL);}
+false		{ECHO;   return (BOOL_LITERAL);}
 
 begin		{ ECHO; return(BEGIN_); }
 boolean		{ ECHO; return(BOOLEAN); }
@@ -57,7 +61,7 @@ endreduce	{ ECHO; return(ENDREDUCE); }
 function	{ ECHO; return(FUNCTION); }
 integer		{ ECHO; return(INTEGER); }
 is		{ ECHO; return(IS); }
-reduce		{ ECHO; return REDUCE; }
+reduce		{ ECHO; return(REDUCE); }
 returns		{ ECHO; return(RETURNS); }
 and		{ ECHO; return(ANDOP); }
 case 		{ ECHO; return(CASE); }
@@ -73,30 +77,20 @@ when		{ ECHO; return(WHEN); }
 or		{ ECHO; return(OROP); }
 not		{ ECHO; return(NOTOP); }
 
-rem		{ ECHO; return(REMOP); }
+rem		{ ECHO; return(REMOP); } 
 
 
-{int}		{ ECHO; return(INT_LITERAL); }
-{real}		{ ECHO; return(REAL_LITERAL); }
-{bool}		{ ECHO; return(BOOL_LITERAL); }
-{id}		{ ECHO; return(IDENTIFIER);}
+{int}		{ ECHO;  yylval.type = INT_TYPE; return(INT_LITERAL); }
+
+{real}		{ ECHO;  yylval.type = REAL_TYPE; return(REAL_LITERAL); }
+
+
+
+{id}		{ ECHO;	yylval.iden = (CharPtr)malloc(yyleng + 1); 
+			strcpy(yylval.iden, yytext); return(IDENTIFIER);}
+			
 {punc}		{ ECHO; return(yytext[0]); }
 
 .		{ ECHO; appendError(LEXICAL, yytext); }
 %%
 
-int main()
-{
-	firstLine();
-	
-	FILE *file = fopen("lexemes.txt", "wa"); 
-	int token = yylex();
-	while (token)
-	{
-		fprintf(file, "%d %s\n", token, yytext);
-		token = yylex();
-	}
-	lastLine();
-	fclose(file);
-	return 0;
-}

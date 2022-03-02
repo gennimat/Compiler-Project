@@ -10,7 +10,6 @@
 #include <iostream>
 #include <queue> 
 
-
 using namespace std;
 
 #include "listing.h"
@@ -64,8 +63,10 @@ int lastLine()
 void appendError(ErrorCategories errorCategory, string message)
 {
 
-	string messages[] = { "Lexical Error, Invalid Character ", "",
-		"Semantic Error, ", "Semantic Error, Duplicate Identifier: ",
+	string messages[] = { "Lexical Error, Invalid Character ", 
+		"",
+		"Semantic Error, ", 
+		"Semantic Error, Duplicate Identifier: ",
 		"Semantic Error, Undeclared " };
 
 		
@@ -82,6 +83,10 @@ void appendError(ErrorCategories errorCategory, string message)
 	}
 	
 	else if (errorCategory ==3 ){
+	semanticerror++;
+	}
+	
+	else if (errorCategory == 4){
 	semanticerror++;
 	}
 

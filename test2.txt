@@ -1,6 +1,8 @@
--- Function with a lexical error
+--Error at line 5: assigning to a boolean variable an int value
+--Error at line 7: arithmetic operation on boolean variable
 
-function test2 returns integer;
+function test2 returns boolean;
+    a: boolean is 3;
 begin
-    7 * 2 ^ (2  + 4);
+    a + 5;    
 end;

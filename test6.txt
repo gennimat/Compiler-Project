@@ -1,56 +1,7 @@
-//Testing the new punctuation symbol: =>
-=>
+-- Error Undeclared identifier
 
+function test6 a: integer returns integer;
 
-//Testing the reserved keywords:
-begin else end endif endreduce function if is integer reduce returns then case endcase real when others
-
-
-//Testing OROP and NOTOP:
-or not
-
-
-//Testing RELOP:
-= /= > >= <= 
-
-
-//Testing ADDOP:
--
-
-
-//Testing MULOP:
-/
-
-
-//Testing other arithmetic operators:
-* +
-
-
-//Testing REMOP:
-rem
-
-
-//Testing EXPOP:
-**
-
-
-//Testing comments starting with backslashes
-
-
-//Testing different IDs with underscores:
-a_b
-abc_d
-ab__c
-ab___c
-_ab
-ab_
-
-
-//Testing real literal token:
-1.15 5.0e1 3.0e+4 8.3E45
-
-
-//Testing boolean literal:
-true false
-
-
+begin
+    a + e;
+end;

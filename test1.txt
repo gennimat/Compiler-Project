@@ -1,6 +1,7 @@
--- Function with arithmetic expression
+--should return an error at line 3 due to narrowing a: integer to real
 
 function test1 returns integer;
+    a: integer is 7.5;
 begin
-    7 + 2 * (2  + 4);
+    a  - 3 ** 1;    
 end;

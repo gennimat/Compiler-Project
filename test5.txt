@@ -1,6 +1,5 @@
--- Function with two lexical errors
-
-function test2 returns integer;
+function test5 returns boolean;
+    a: integer is 8;
 begin
-7 $ 2 ^ (2 + 4);
+    a + 8;   
 end;

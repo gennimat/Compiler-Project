@@ -1,27 +1,14 @@
--- Punctuation symbols
+--Error when if and then types don't match
 
-,;() 
+function test3 a: boolean returns real;
 
--- Identifier
+    b: integer is 3;
+    c: real is 4.0;
 
-name name123 
-
--- Literals
-
-123
-
--- Logical operators
-
-and or not
-
--- Relational operators
-
-<
-
--- Arithmetic operator
-
-+
-
--- Reserved words
-
-begin else end endif endreduce function if is integer reduce returns then 
+begin
+    if a then
+        b;
+    else
+        c;
+    endif;
+end;
