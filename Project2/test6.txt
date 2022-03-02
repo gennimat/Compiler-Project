@@ -1,6 +1,0 @@
--- Testing multiple parameters seperated by comma ',' as arguments to the function test6
-
-function test6 x:real, y:integer, z:boolean returns integer;
-begin
-    a and b + d * a;    
-end;
