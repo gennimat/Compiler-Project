@@ -1,0 +1,11 @@
+//Function with a Nested Reduction
+
+function test10 returns integer;
+begin
+    reduce +
+        reduce *
+            1 - 5;
+        endreduce; 
+        5;
+    endreduce;
+end;

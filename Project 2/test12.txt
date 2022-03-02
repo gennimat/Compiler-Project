@@ -1,0 +1,10 @@
+//function with error one extra (
+
+function test12 returns integer;
+begin
+if (( a > 5 ) then
+a = 1;
+else
+d = 4;
+endif;
+end;
