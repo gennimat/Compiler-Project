@@ -1,0 +1,10 @@
+//test case statement
+
+function main returns integer;
+
+begin
+    case y is
+        when 1 => (5 - 3) ** 3;
+        others => 8;
+    endcase;  
+end;
